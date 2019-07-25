@@ -48,14 +48,6 @@ var ServerlessOfflineDnsResolver = /** @class */ (function () {
             "after:offline:start:end": function () { return _this.stop(); },
         };
     }
-    ServerlessOfflineDnsResolver.prototype.init = function () {
-        process.env = _.extend({}, this.serverless.service.provider.environment, process.env);
-        this.config = this.serverless.service.custom["serverless-offline-dnsresolver"] || {};
-        this.port = this.config.port || 15536;
-        this.resolveFile = process.cwd() + (this.config.resolveFile || '/dns-resolve.js');
-        this.log('Use Resolve File: ' + this.resolveFile);
-        this.resolve = require(this.resolveFile)();
-    };
     ServerlessOfflineDnsResolver.prototype.start = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -131,6 +123,14 @@ var ServerlessOfflineDnsResolver = /** @class */ (function () {
                     })];
             });
         });
+    };
+    ServerlessOfflineDnsResolver.prototype.init = function () {
+        process.env = _.extend({}, this.serverless.service.provider.environment, process.env);
+        this.config = this.serverless.service.custom["serverless-offline-dnsresolver"] || {};
+        this.port = this.config.port || 15536;
+        this.resolveFile = process.cwd() + (this.config.resolveFile || '/dns-resolve.js');
+        this.log('Use Resolve File: ' + this.resolveFile);
+        this.resolve = require(this.resolveFile)();
     };
     return ServerlessOfflineDnsResolver;
 }());

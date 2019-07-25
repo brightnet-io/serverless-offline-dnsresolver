@@ -24,16 +24,6 @@ class ServerlessOfflineDnsResolver {
         };
     }
 
-    private init() {
-        process.env = _.extend({}, this.serverless.service.provider.environment, process.env);
-        this.config = this.serverless.service.custom["serverless-offline-dnsresolver"] || {};
-        this.port = this.config.port || 15536;
-        this.resolveFile = process.cwd() + (this.config.resolveFile || '/dns-resolve.js');
-        this.log('Use Resolve File: ' + this.resolveFile);
-        this.resolve = require(this.resolveFile)();
-
-    }
-
     public async start() {
         this.log('starting plugin');
         this.init();
@@ -96,6 +86,16 @@ class ServerlessOfflineDnsResolver {
             this.server = server;
         });
 
+
+    }
+
+    private init() {
+        process.env = _.extend({}, this.serverless.service.provider.environment, process.env);
+        this.config = this.serverless.service.custom["serverless-offline-dnsresolver"] || {};
+        this.port = this.config.port || 15536;
+        this.resolveFile = process.cwd() + (this.config.resolveFile || '/dns-resolve.js');
+        this.log('Use Resolve File: ' + this.resolveFile);
+        this.resolve = require(this.resolveFile)();
 
     }
 

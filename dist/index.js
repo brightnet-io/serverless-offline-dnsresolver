@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var dns = require("dns");
-var _ = require("lodash");
+var lodash_1 = require("lodash");
 var nativeDns = require("native-dns");
 var ServerlessOfflineDnsResolver = /** @class */ (function () {
     function ServerlessOfflineDnsResolver(serverless, options) {
@@ -74,7 +74,6 @@ var ServerlessOfflineDnsResolver = /** @class */ (function () {
     };
     ServerlessOfflineDnsResolver.prototype.handleDnsRequest = function (request, response) {
         var _this = this;
-        console.log('handle request');
         request.question.forEach(function (question) {
             var entry = _this.resolve.filter(function (r) { return new RegExp(r.domain, 'i').exec(question.name); });
             // a local resolved host
@@ -125,7 +124,7 @@ var ServerlessOfflineDnsResolver = /** @class */ (function () {
         });
     };
     ServerlessOfflineDnsResolver.prototype.init = function () {
-        process.env = _.extend({}, this.serverless.service.provider.environment, process.env);
+        process.env = lodash_1.extend({}, this.serverless.service.provider.environment, process.env);
         this.config = this.serverless.service.custom["serverless-offline-dnsresolver"] || {};
         this.port = this.config.port || 15536;
         this.resolveFile = process.cwd() + (this.config.resolveFile || '/dns-resolve.js');

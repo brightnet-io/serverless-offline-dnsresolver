@@ -1,5 +1,5 @@
 import * as dns from "dns";
-import * as _ from "lodash";
+import  {extend} from "lodash";
 import * as nativeDns from "native-dns";
 
 class ServerlessOfflineDnsResolver {
@@ -89,7 +89,7 @@ class ServerlessOfflineDnsResolver {
     }
 
     private init() {
-        process.env = _.extend({}, this.serverless.service.provider.environment, process.env);
+        process.env = extend({}, this.serverless.service.provider.environment, process.env);
         this.config = this.serverless.service.custom["serverless-offline-dnsresolver"] || {};
         this.port = this.config.port || 15536;
         this.resolveFile = process.cwd() + (this.config.resolveFile || '/dns-resolve.js');

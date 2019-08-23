@@ -1,5 +1,5 @@
 {
-  "name": "@brightnet/serverless-offline-dnsresolver",
+  "name": "serverless-offline-dnsresolver",
   "version": "0.1.2",
   "description": "Serverless dns proxy plugin to be used together with serverless offline in order to return mock dns responses.",
   "keywords": [],

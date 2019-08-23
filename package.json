@@ -1,14 +1,15 @@
 {
-  "name": "serverless-offline-dnsresolver",
+  "name": "@brightnet/serverless-offline-dnsresolver",
   "version": "0.1.0",
   "description": "Serverless dns proxy plugin to be used together with serverless offline in order to return mock dns responses.",
   "keywords": [],
-  "author": "awol55 <awol55@brightnet.io>",
+  "author": "awol55 <45808291+awol55@users.noreply.github.com>",
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/brightnet-io/servereless-offline-dnsresolve"
+    "url": "https://github.com/brightnet-io/servereless-offline-dnsresolver"
   },
   "scripts": {
     "build": "tsc ",
@@ -16,9 +17,9 @@
     "test": "jest --detectOpenHandles --passWithNoTests",
     "tslint": "tslint -c tslint.json './__tests__/**/*.ts' 'src/**/*.ts' ",
     "tslint:fix": "tslint -c tslint.json './__tests__/**/*.ts' 'src/**/*.ts' --fix",
-    "prepare": "npm run tslint && npm run test && npm run build"
+    "prepare": "npm run tslint && npm run test && npm run build",
+    "prepublish": "npm run prepare"
   },
-
   "dependencies": {
     "aws-sdk": "^2.497.0",
     "body-parser": "^1.19.0",

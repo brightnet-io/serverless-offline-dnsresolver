@@ -37,7 +37,6 @@ class ServerlessOfflineDnsResolver {
 
 
     public handleDnsRequest(request, response) {
-        console.log('handle request');
         request.question.forEach(question => {
             const entry: any = this.resolve.filter((r: any) => new RegExp(r.domain, 'i').exec(question.name));
             // a local resolved host

@@ -30,7 +30,7 @@
     "@types/lodash": "^4.14.137",
     "@types/node": "^12.6.8",
     "jest": "^24.8.0",
-    "ts-loader": "^6.0.4",
+    "ts-loader": "^9.4.2",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
